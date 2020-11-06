@@ -1,0 +1,163 @@
+.boundBox {
+	width: 720px;
+	height: 420px;
+	border: 2px solid #DFE1E5;
+	border-radius: 10px;
+	padding: 26px 60px 40px 32px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -210px 0 0 -360px;
+}
+
+.rightSide {
+  position: relative;
+  float: right;
+  right: 0px;
+}
+
+#textbox {
+	width: 265px;
+  height: 350px;
+  overflow-y: scroll;
+	border: 2px solid #A7A9AC;
+	border-radius: 10px; 
+	float: left;
+	padding: 20px;
+}
+
+#text {
+  font-family: "Roboto Sans", Roboto, sans-serif;
+}
+
+.sliderBox {
+	position: relative;
+	right: 0px;
+  width: 220px;
+  height: 185px;
+  border: 2px solid #A7A9AC;
+	border-radius: 10px;
+		
+}
+
+.sliders {
+	width: 125px;
+	margin: 21.3px 46.1px 18px 37px;
+}
+
+.Cwidth {
+  width: 100%;
+  margin-bottom: 45px;
+	display: flex;
+	flex-direction: row;
+}
+
+.tracking {
+  width: 100%;
+  margin-bottom: 85px;
+}
+
+.fontSize {
+  width: 100%; /* Width of the outside container */
+  margin-bottom: 45px;
+}
+  
+  /* The slider itself */
+.slider {
+  -webkit-appearance: none ;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 8px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+  border-radius: 5px;
+}
+  
+  /* Mouse-over effects */
+  /*.slider:hover {
+    opacity: 1; /* Fully shown on mouse-over 
+  } */
+    
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 20px; /* Set a specific slider handle width */
+  height: 20px; /* Slider handle height */
+  background: #8a8a8a; /* Green background */
+  cursor: -webkit-grabbing; /* Cursor on hover */
+  border-radius: 10px;
+  scrollbar-darkshadow-color: black;
+}
+  
+#textbox::-webkit-scrollbar {
+  display: none;
+}
+ 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  margin: 0px 0px 25px 40px;
+
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.toggle:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .toggle {
+  background-color: #ccc;
+}
+
+input:focus + .toggle {
+  box-shadow: 0 0 1px #ccc;
+}
+
+input:checked + .toggle:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.toggle.round {
+  border-radius: 34px;
+}
+
+.toggle.round:before {
+  border-radius: 50%;
+}
+
