@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="TypoTool.css">
+</head>
+
+<body>
+
+	<body>
+		<div class="boundBox">
+
+			<div id="textbox">
+				<div id="text">In typography, leading (LED-ing) is the space between adjacent lines of type; the exact
+					definition varies.<br><br>In hand typesetting, leading is the thin strips of lead that were inserted
+					between lines of type in the composing stick to increase the vertical distance between them. The
+					thickness of the strip is called leading.<br><br>In electronic typesetting, "leading" often instead
+					means the distance from one baseline to the next.
+				</div>
+			</div>
+			
+			<div class="rightSide">
+
+				<div class="switchBox">
+		
+					<img src="images/Asset 4.svg" alt="Roboto" width="19" style="position: absolute; left: 13px; top: 1px;">
+					
+					<label class="switch">
+						<input type="checkbox" id="toggleSwitch">
+						<span class="toggle round"></span>
+					</label>
+
+					<img src="images/Asset 12.svg" alt="Georgia" width="22" style="position: absolute; left: 100px; top: 1px;">
+
+				</div>
+			
+				<div class="sliderBox">
+						
+					<div class="sliders">
+					
+						<div class="fontSize">
+							<img src="images/Asset 4.svg" alt="smallA" width="11" style="position: absolute; left: 17px; top: 25px;">
+							<img src="images/Asset 5.svg" alt="bigA" width="18" style="position: absolute; left: 175px; top: 21px;">
+							<input type="range" min="28" max="120" value="56" class="slider" id="fontsize">
+						</div>
+
+						<div class="Cwidth">
+							<img src="images/Asset 8.svg" alt="wide column" width="18" style="position: absolute; left: 175px; top: 78px;">
+							<input type="range" min="200" max="372" value="265" class="slider" id="cwidth">
+							<img src="images/Asset 9.svg" alt="narrow column" width="10" style="position: absolute; left: 18px; top: 78px;">
+						</div>
+
+						<div class="tracking">
+							<img src="images/Asset 6.svg" alt="loose tracking" width="30" style="position: absolute; left: 175px; top: 147px;">
+							<img src="images/Asset 7.svg" alt="tight tracking" width="21" style="position: absolute; left: 12px; top: 147px;">
+							<input type="range" min="-100" max="100" value="0" class="slider" id="track">
+						</div>
+
+						<div class="leading">
+							<img src="images/Asset 10.svg" alt="loose leading" width="19" style="position: absolute; left: 175px; top: 239px;">
+							<img src="images/Asset 11.svg" alt="tight leading" width="21" style="position: absolute; left: 12px; top: 242px;">
+							<input type="range" min="-100" max="100" value="0" class="slider" id="lead">
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+		<script>
+			{
+				var sizeSlider = document.getElementById("fontsize");
+				// Update the current slider value (each time you drag the slider handle)
+				sizeSlider.oninput = function () {
+					document.getElementById("text").style.fontSize = (sizeSlider.value / 4) + "px";
+				}
+
+				var wideSlider = document.getElementById("cwidth");
+				// Update the current slider value (each time you drag the slider handle)
+				wideSlider.oninput = function () {
+					document.getElementById("textbox").style.width = wideSlider.value + "px";
+				}
+
+				var spaceSlider = document.getElementById("track");
+				// Update the current slider value (each time you drag the slider handle)
+				spaceSlider.oninput = function () {
+					document.getElementById("text").style.letterSpacing = (spaceSlider.value * 0.0125) + "px";
+				}
+
+				var lineSlider = document.getElementById("lead");
+				// Update the current slider value (each time you drag the slider handle)
+				lineSlider.oninput = function () {
+					document.getElementById("text").style.lineHeight = (lineSlider.value * 0.125) + (sizeSlider.value * 0.3) + "px";
+				}
+
+				var toggleSlide = document.getElementById("toggleSwitch");
+
+				toggleSlide.oninput = function () {
+  					if(toggleSlide.checked === true){
+  					  	document.getElementById("text").style.fontFamily = "Georgia, black, serif";
+  					} 
+					else {
+  					  	document.getElementById("text").style.fontFamily = "Roboto, black, sans-serif";
+  					}
+				}
+
+
+			}
+		</script>
+
+	</body>
+
+
+</body>
+
+</html>
