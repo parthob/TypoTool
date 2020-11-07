@@ -125,13 +125,28 @@
 
 				toggleSlide.oninput = function () {
   					if(toggleSlide.checked === true){
-							document.getElementById("text").style.fontFamily = "Georgia, black, serif";
+						document.getElementById("text").style.fontFamily = "Georgia, black, serif";
 					} 
 					else {
-							document.getElementById("text").style.fontFamily = "Roboto, black, sans-serif";
+						document.getElementById("text").style.fontFamily = "Roboto, black, sans-serif";
   					}
 				}
 
+				var darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+				handleDarkmode(darkModeMediaQuery);
+				function handleDarkmode(e){
+					var darkModeOn = e.matches; // true if dark mode is enabled
+					var favicon = document.querySelector('link[rel="shortcut icon"]'); // get favicon-192.png element
+					// replace icons with dark/light themes as appropriate
+					if(darkModeOn) {
+						favicon.href = 'images/ficonw.ico';
+					}
+					else {
+						favicon.href = 'images/ficon.ico';
+					}
+				}
+				
+				darkModeMediaQuery.addListener(handleDarkmode);
 			}
 			
 		</script>
