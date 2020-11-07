@@ -1,9 +1,29 @@
+body {
+  background-color: #ccc;
+}
+
+h1{
+  font-family: "Roboto Slab", Roboto Slab;
+  font-size: 40px;
+  font-weight: 400;
+  position: absolute;
+  left: 430px;
+  top: 50px;
+}
+
+h3 {
+  font-family: "Roboto", Roboto, sans-serif;
+  font-size: 24px;
+  font-weight: 350;
+}
+
 .boundBox {
 	width: 720px;
-	height: 420px;
-	border: 2px solid #DFE1E5;
+  height: 420px;
+  background-color: #ffffff;
+	/*border: 2px solid #DFE1E5;*/
 	border-radius: 10px;
-	padding: 26px 60px 40px 32px;
+	padding: 26px 60px 26px 32px;
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -18,7 +38,7 @@
 
 #textbox {
 	width: 265px;
-  height: 350px;
+  height: 368px;
   overflow-y: scroll;
 	border: 2px solid #A7A9AC;
 	border-radius: 10px; 

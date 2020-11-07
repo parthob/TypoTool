@@ -4,13 +4,17 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>TypoTool</title>
 	<link rel="stylesheet" href="TypoTool.css">
 </head>
 
 <body>
 
 	<body>
+		
+		<h1>TypoTool</h1>
+		<!-- <h3>An interactive tool to explain the relation between typographic parameters.</h3> -->
+		
 		<div class="boundBox">
 
 			<div id="textbox">
@@ -62,7 +66,10 @@
 						<div class="leading">
 							<img src="images/Asset 10.svg" alt="loose leading" width="19" style="position: absolute; left: 175px; top: 239px;">
 							<img src="images/Asset 11.svg" alt="tight leading" width="21" style="position: absolute; left: 12px; top: 242px;">
-							<input type="range" min="-100" max="100" value="0" class="slider" id="lead">
+							<input type="range" min="25" max="300" value="91" class="slider" id="lead">
+							
+							<!-- <div id="region"><p id="para1">Perfect</p></div> -->
+						
 						</div>
 					</div>
 				</div>
@@ -71,43 +78,60 @@
 		</div>
 		<script>
 			{
+				var wideSlider = document.getElementById("cwidth");
 				var sizeSlider = document.getElementById("fontsize");
-				// Update the current slider value (each time you drag the slider handle)
+				var spaceSlider = document.getElementById("track");
+				var lineSlider = document.getElementById("lead");
+				var region = document.getElementById("region");
+				document.getElementById("text").style.lineHeight = (lineSlider.value * 0.2) + "px";
+				
+				/*var cw = document.getElementById("textbox").style.width;
+				var ld = document.getElementById("textbox").style.lineHeight;
+				var tr = document.getElementById("textbox").style.letterSpacing;
+				var fs = document.getElementById("textbox").style.fontSize;*/
+				
+				var txt = document.getElementById("textbox").style;
+				
 				sizeSlider.oninput = function () {
 					document.getElementById("text").style.fontSize = (sizeSlider.value / 4) + "px";
+					document.getElementById("text").style.transitionDuration = "0.2s";
+					txt.fontSize = document.getElementById("text").style.fontSize;
 				}
 
-				var wideSlider = document.getElementById("cwidth");
-				// Update the current slider value (each time you drag the slider handle)
 				wideSlider.oninput = function () {
 					document.getElementById("textbox").style.width = wideSlider.value + "px";
+					document.getElementById("textbox").style.transitionDuration = "0.2s";
+					//cw = document.getElementById("textbox").style.width;
+					txt.width = document.getElementById("textbox").style.width;
 				}
 
-				var spaceSlider = document.getElementById("track");
-				// Update the current slider value (each time you drag the slider handle)
 				spaceSlider.oninput = function () {
 					document.getElementById("text").style.letterSpacing = (spaceSlider.value * 0.0125) + "px";
+					document.getElementById("text").style.transitionDuration = "0.2s";
+					txt.letterSpacing = document.getElementById("textbox").style.letterSpacing;				
 				}
 
-				var lineSlider = document.getElementById("lead");
-				// Update the current slider value (each time you drag the slider handle)
 				lineSlider.oninput = function () {
-					document.getElementById("text").style.lineHeight = (lineSlider.value * 0.125) + (sizeSlider.value * 0.3) + "px";
+					document.getElementById("text").style.lineHeight = (lineSlider.value * 0.2) + "px";
+					document.getElementById("text").style.transitionDuration = "0.2s";
+					txt.lineHeight = document.getElementById("text").style.lineHeight
+					
+					//if((txt.lineHeight >= 1.1 * txt.fontSize) && (txt.lineHeight <= 1.5 * txt.fontSize)) {}					}
 				}
 
 				var toggleSlide = document.getElementById("toggleSwitch");
 
 				toggleSlide.oninput = function () {
   					if(toggleSlide.checked === true){
-  					  	document.getElementById("text").style.fontFamily = "Georgia, black, serif";
-  					} 
+							document.getElementById("text").style.fontFamily = "Georgia, black, serif";
+					} 
 					else {
-  					  	document.getElementById("text").style.fontFamily = "Roboto, black, sans-serif";
+							document.getElementById("text").style.fontFamily = "Roboto, black, sans-serif";
   					}
 				}
 
-
 			}
+			
 		</script>
 
 	</body>
