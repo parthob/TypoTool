@@ -3,7 +3,7 @@ body {
 }
 
 h1{
-  font-family: "Roboto Slab", Roboto Slab;
+  font-family: "Roboto Slab", Roboto Slab, slab-serif;
   font-size: 40px;
   font-weight: 400;
   position: absolute;
